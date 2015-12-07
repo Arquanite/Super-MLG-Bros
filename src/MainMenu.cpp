@@ -120,6 +120,20 @@ MainMenu::MainMenu(RenderWindow *render_window){
     Explosion.setPosition(x,y);
     Explosion.setTextureRect(IntRect(0,0,341,162));
 
+    //Set up doritos
+    DoritosTexture.loadFromFile("res/Doritos.png");
+    Doritos1.setTexture(DoritosTexture);
+    Doritos2.setTexture(DoritosTexture);
+    Doritos3.setTexture(DoritosTexture);
+    Doritos1.setScale(0.3, 0.3);
+    Doritos2.setScale(0.3, 0.3);
+    Doritos3.setScale(0.3, 0.3);
+    x = 200;
+    y = -600;
+    Doritos1.setPosition(x,y);
+    Doritos2.setPosition(x+100,y+100);
+    Doritos3.setPosition(x+200,y+200);
+
     //Set up music
     MLGarioMusic1.openFromFile("res/MarioThem.ogg");
     MLGarioMusic2.openFromFile("res/Gz.wav");
@@ -143,6 +157,9 @@ void MainMenu::Draw(){
     window->draw(Joint);
     window->draw(Loominati2);
     window->draw(Loominati3);
+    window->draw(Doritos1);
+    window->draw(Doritos2);
+    window->draw(Doritos3);
     window->draw(Logo);
     window->draw(Loominati1);
     window->draw(FPS);
@@ -230,6 +247,14 @@ void MainMenu::Update(double dt){
             Loominati3.move(-dt*50*x, -dt*50*x);
             Loominati4.move(-dt*30*x, -dt*30*x);
             Loominati5.move(-dt*40*x, -dt*40*x);
+            if(Delay < 5.0) {
+                int x = 280;
+                int y = 100;
+                Doritos1.setPosition(x,y+100);
+                Doritos2.setPosition(x+100,y+500);
+                Doritos3.setPosition(x-100,y+500);
+
+               }
             if(Delay > 3.0) view.setRotation(30);
             if(Delay > 3.4) view.reset(FloatRect(185, 385, 270, 210));
             if(Delay > 3.8) view.setRotation(-45);
@@ -243,7 +268,11 @@ void MainMenu::Update(double dt){
             if(Delay > 6.2) view.setRotation(50);
             if(Delay > 6.4) view.setRotation(15);
             window->setView(view);
+            Doritos1.move(0, +dt*400);
+            Doritos2.move(-dt*400, -dt*400);
+            Doritos3.move(+dt*400, -dt*400);
         }
+
         else window->setView(View(FloatRect(0,0,800,600)));
 
         if(Delay > 2.7 && AnimationFrame < 49){

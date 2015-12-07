@@ -20,6 +20,7 @@ private:
     Texture JointTexture;
     Texture LoominatiTexture;
     Texture ExplosionTexture;
+    Texture DoritosTexture;
     Sprite MLGario;
     Sprite SWAGlasses;
     Sprite Floor;
@@ -35,6 +36,9 @@ private:
     Sprite Loominati3;
     Sprite Loominati4;
     Sprite Loominati5;
+    Sprite Doritos1;
+    Sprite Doritos2;
+    Sprite Doritos3;
     Sprite Explosion;
     Music MLGarioMusic1;
     Music MLGarioMusic2;
