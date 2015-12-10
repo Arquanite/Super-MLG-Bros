@@ -268,6 +268,7 @@ void MainMenu::Update(double dt){
             if(Delay > 6.2) view.setRotation(50);
             if(Delay > 6.4) view.setRotation(15);
             window->setView(view);
+            Doritos1.setRotation(dt*50);
             Doritos1.move(0, +dt*400);
             Doritos2.move(-dt*400, -dt*400);
             Doritos3.move(+dt*400, -dt*400);
